@@ -35,6 +35,14 @@
                     <li><a href="{{ route('category.create') }}">> <span>Add New</span></a></li>
                 </ul>
             </li>
+            <li>
+                <a href="#testimonial" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                        class="fa fa-diamond purple_color"></i> <span>Testimonial</span></a>
+                <ul class="collapse list-unstyled" id="testimonial">
+                    <li><a href="{{ route('testimonial.index') }}">> <span>List</span></a></li>
+                    <li><a href="{{ route('testimonial.create') }}">> <span>Add New</span></a></li>
+                </ul>
+            </li>
             <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Widgets</span></a>
             </li>
             <li>

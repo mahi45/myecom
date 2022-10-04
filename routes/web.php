@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::prefix('admin/')->group(function(){
 
     // Category Route
     Route::resource('category', CategoryController::class);
+    Route::resource('testimonial', TestimonialController::class);
 
 });
 
