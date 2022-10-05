@@ -22,10 +22,6 @@
 
         @yield('frontend_content')
 
-        @include('frontend.layouts.inc.subscribe')
-
-        @include('frontend.layouts.inc.client')
-
         @include('frontend.layouts.inc.footer')
 
         @include('frontend.layouts.inc.script')

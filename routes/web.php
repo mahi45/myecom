@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,14 @@ use App\Http\Controllers\backend\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('frontend.pages.home');
+// Route::get('/', function () {
+//     return view('frontend.pages.home');
+// });
+
+Route::prefix('')->group(function(){
+    Route::get('/', [HomeController::class, 'home'])->name('home');
 });
+
 
 Route::prefix('admin/')->group(function(){
     Route::get('login', [LoginController::class, 'loginPage'])->name('admin.loginpage');

@@ -12,4 +12,8 @@
 
     @include('frontend.pages.widgets.product')
 
+    @include('frontend.pages.widgets.subscribe')
+
+    @include('frontend.pages.widgets.client')
+
 @endsection
