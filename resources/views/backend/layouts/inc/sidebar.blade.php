@@ -43,6 +43,14 @@
                     <li><a href="{{ route('testimonial.create') }}">> <span>Add New</span></a></li>
                 </ul>
             </li>
+            <li>
+                <a href="#product" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                        class="fa fa-diamond purple_color"></i> <span>Product</span></a>
+                <ul class="collapse list-unstyled" id="product">
+                    <li><a href="{{ route('product.index') }}">> <span>List</span></a></li>
+                    <li><a href="{{ route('product.create') }}">> <span>Add New</span></a></li>
+                </ul>
+            </li>
             <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Widgets</span></a>
             </li>
             <li>

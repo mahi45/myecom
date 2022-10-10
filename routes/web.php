@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\backend\TestimonialController;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
-use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\backend\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::prefix('admin/')->group(function(){
     // Category Route
     Route::resource('category', CategoryController::class);
     Route::resource('testimonial', TestimonialController::class);
+    Route::resource('product', ProductController::class);
 
 });
 

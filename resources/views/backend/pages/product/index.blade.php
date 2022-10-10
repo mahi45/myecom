@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('backend_title', 'Category List');
+@section('backend_title', 'Product List');
 
 @push('admin_style')
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}
@@ -18,9 +18,9 @@
 @section('admin_content')
     <div class="row">
         <div class="col-12 my-4 d-flex justify-content-between">
-            <h3>Category List Table</h3>
-            <a href="{{ route('category.create') }}"><button class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i>
-                    Add New Category</button></a>
+            <h3>Product List Table</h3>
+            <a href="{{ route('product.create') }}"><button class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i>
+                    Add New Product</button></a>
         </div>
         <div class="col-12">
             <div class="table-responsive">
@@ -31,25 +31,26 @@
                             <th scope="col" class="text-white">Last Modified</th>
                             <th scope="col" class="text-white">Image</th>
                             <th scope="col" class="text-white">Category Name</th>
-                            <th scope="col" class="text-white">Category Slug</th>
+                            <th scope="col" class="text-white">Product Name</th>
+                            <th scope="col" class="text-white">Product Price</th>
                             <th scope="col" class="text-white">Active Status</th>
                             <th scope="col" class="text-white">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($products as $product)
                             <tr>
-                                <td>{{ $categories->firstItem() + $loop->index }}</td>
-                                <td>{{ $category->updated_at->format('d-m-Y') }}</td>
+                                <td>{{ $products->firstItem() + $loop->index }}</td>
+                                <td>{{ $product->updated_at->format('d-m-Y') }}</td>
                                 <td>
-                                    <img src="{{ asset('uploads/categories') }}/{{ $category->category_image }}"
-                                        alt="" class="img-fluid img-responsive img-thumbnail"
-                                        style="width: 105px;height: 105px;">
+                                    <img src="{{ asset('uploads/products') }}/{{ $product->product_image }}" alt=""
+                                        class="img-fluid img-responsive img-thumbnail" style="width: 95px;height: 95px;" />
                                 </td>
-                                <td>{{ $category->title }}</td>
-                                <td>{{ $category->slug }}</td>
+                                <td>{{ $product->category->title }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->product_price }}</td>
                                 <td>
-                                    @if ($category->is_active == 1)
+                                    @if ($product->is_active == 1)
                                         <span class="btn btn-primary">
                                             {{ 'Active' }}
                                         </span>
@@ -66,12 +67,11 @@
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <li>
-                                                <a href="{{ route('category.edit', $category->slug) }}"
+                                                <a href="{{ route('product.edit', $product->slug) }}"
                                                     class="dropdown-item">
                                                     <i class="fa-regular fa-pen-to-square"></i> Edit
                                                 </a>
-                                                <form action="{{ route('category.destroy', $category->slug) }}"
-                                                    method="POST">
+                                                <form action="{{ route('product.destroy', $product->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item show_confirm">
